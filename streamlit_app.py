@@ -7,8 +7,9 @@ import time
 
 ##STEP 1
 st.write("1. Load fine-tuned pretrained model YOLOx:")
-with st.echo:
-    # to insert model loading code in progress bar
+st.write("# to insert model loading code in progress bar")
+
+    
 my_bar = st.progress(0)
 
 for percent_complete in range(100):
@@ -25,7 +26,7 @@ st.video(vid_file)
 
 ##STEP 3 
 st.write("3. YOEO working its magic: ")
-# to insert model inference in progress bar
+st.write("# to insert model inference and stich algo in progress bar")
 my_bar = st.progress(0)
 
 for percent_complete in range(100):
