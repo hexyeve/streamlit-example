@@ -34,7 +34,7 @@ for percent_complete in range(100):
 
  
 ##STEP 4 
-st.write("4. Objects of interest detected and trimmed video output ")
+st.write("4. Objects of interest detected and trimmed video output: ")
 
 col1, col2, col3 = st.columns(3)
 col1.metric("# Speciies Detected", "2")
