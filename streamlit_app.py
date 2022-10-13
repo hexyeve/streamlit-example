@@ -40,3 +40,8 @@ with st.echo(code_location='below'):
     vid_file = st.file_uploader("Choose a file")
     
     st.video(vid_file)
+    
+    col1, col2, col3 = st.columns(3)
+    col1.metric("# Speciies Detected", "2")
+    col2.metric("Turtle", "1")
+    col3.metric("Fish", "23")
