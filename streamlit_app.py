@@ -3,45 +3,32 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
+import time
 
-"""
-# Welcome to Streamlit!
+##STEP 1
+st.write("1. Load fine-tuned pretrained model YOLOx:")
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
+# to insert model loading code in progress bar
+my_bar = st.progress(0)
 
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+for percent_complete in range(100):
+    time.sleep(0.1)
+    my_bar.progress(percent_complete + 1)
 
-In the meantime, below is an example of what you can do with just a few lines of code:
-"""
+##STEP 2    
+st.write("2. Upload raw diving video:\n")
+
+vid_file = st.file_uploader("Choose a file")
+
+st.video(vid_file)
 
 
-with st.echo(code_location='below'):
-#     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
-#     num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
+##STEP 3 
+st.write("3. YOEO working its magic: ")
 
-#     Point = namedtuple('Point', 'x y')
-#     data = []
-
-#     points_per_turn = total_points / num_turns
-
-#     for curr_point_num in range(total_points):
-#         curr_turn, i = divmod(curr_point_num, points_per_turn)
-#         angle = (curr_turn + 1) * 2 * math.pi * i / points_per_turn
-#         radius = curr_point_num / total_points
-#         x = radius * math.cos(angle)
-#         y = radius * math.sin(angle)
-#         data.append(Point(x, y))
-
-#     st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
-#         .mark_circle(color='#0068c9', opacity=0.5)
-#         .encode(x='x:Q', y='y:Q'))
-    
-    vid_file = st.file_uploader("Choose a file")
-    
-    st.video(vid_file)
-    
-    col1, col2, col3 = st.columns(3)
-    col1.metric("# Speciies Detected", "2")
-    col2.metric("Turtle", "1")
-    col3.metric("Fish", "23")
+ 
+##STEP 4 display processed video and metrics
+col1, col2, col3 = st.columns(3)
+col1.metric("# Speciies Detected", "2")
+col2.metric("Turtle", "1")
+col3.metric("Fish", "23")
